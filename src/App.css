@@ -12,6 +12,7 @@ nav {
   background-color: #0000b9;
   align-items: center;
   border-bottom: solid 1px black;
+  box-sizing: border-box;
 }
 nav > a {
   text-align: center;
@@ -37,5 +38,7 @@ nav > a:hover {
 .flexEnd {
   margin-left: auto;
 }
-
+.margined{
+  margin: 20px;
+}
 

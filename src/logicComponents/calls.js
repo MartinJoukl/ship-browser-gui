@@ -1,4 +1,5 @@
-const baseUri ="http://localhost:9000";
+const baseUri = "http://localhost:9000/api/v1";
+
 async function listShips(dtoIn) {
     return await callPost(`${baseUri}/listShips`, dtoIn);
 }
@@ -8,7 +9,7 @@ async function callPost(uri, dtoIn) {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      //  credentials: "same-origin", // include, *same-origin, omit
+        //  credentials: "same-origin", // include, *same-origin, omit
         headers: {
             "Content-Type": "application/json",
         },
