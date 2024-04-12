@@ -1,5 +1,5 @@
-import StringFilter from "../context/stringFilter";
-import OptionBoxFilter from "../context/optionBoxFilter";
+import StringFilter from "./stringFilter";
+import OptionBoxFilter from "./optionBoxFilter";
 import {List, ListItem, Typography} from "@mui/material";
 
 function ShipFilterMenu({filterUpdateFunction}) {

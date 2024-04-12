@@ -1,8 +1,7 @@
 import ShipFilterMenu from "../visualComponents/shipFilterMenu";
-import ShipFilteringContext from "../context/shipFilteringContext";
 import ListDataLoader from "../logicComponents/ListDataLoader";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import {Card, CardContent, CardHeader, Container, Typography} from "@mui/material";
+import {Card, CardContent} from "@mui/material";
 import {useState} from "react";
 import ShipList from "../visualComponents/shipList";
 
@@ -26,23 +25,22 @@ function ShipOverview() {
 
     }
 
-    return (
-
-        <Grid2 container xs={"auto"} direction="row">
-            <Grid2 item>
-                <Card variant="outlined" className={"margined"}>
-                    <CardContent>
-                        <ShipFilterMenu filterUpdateFunction={updateFilters}/>
-                    </CardContent>
-                </Card>
+    return (<div className={"margined"}>
+            <Grid2 container xs={true} direction="row" spacing={3} columns={60}>
+                <Grid2>
+                    <Card variant="outlined" style={{position: "sticky", top: "15px"}}>
+                        <CardContent>
+                            <ShipFilterMenu filterUpdateFunction={updateFilters}/>
+                        </CardContent>
+                    </Card>
+                </Grid2>
+                <Grid2 container xs={true} direction="row">
+                    <ListDataLoader filters={filters} paging={updatePaging} callDelay={1000}>
+                        <ShipList loadMoreFunction={updatePaging}/>
+                    </ListDataLoader>
+                </Grid2>
             </Grid2>
-            <Grid2 item xs={"auto"} direction="row" className={"margined"}>
-                <ListDataLoader filters={filters} paging={updatePaging} callDelay={1000}>
-                    <ShipList loadMoreFunction={updatePaging}/>
-                </ListDataLoader>
-            </Grid2>
-        </Grid2>
-
+        </div>
     )
 }
 

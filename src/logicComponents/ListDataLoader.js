@@ -6,7 +6,7 @@ function ListDataLoader({children, filters, paging, callDelay}) {
     const [data, setData] = useState(null);
     const searchTimer = useRef(null);
     const [initialLoadPerformed, setInitialLoadPerformed] = useState(false);
-
+    
     useEffect(() => {
 
         function callApi() {

@@ -1,6 +1,5 @@
 import {useContext} from "react";
 import DataContext from "../context/dataContext";
-import {Stack} from "@mui/material";
 import ShipCard from "./ShipCard";
 import Grid2 from "@mui/material/Unstable_Grid2";
 
@@ -9,13 +8,16 @@ function ShipList({shipsToList, loadMoreFunction}) {
     const shipListItems = [];
     if (Array.isArray(ships)) {
         for (const ship of ships) {
-            shipListItems.push(<ShipCard key={ship.id} entity={ship}/>)
+            shipListItems.push(
+                <Grid2 key={ship.id} xs={60} sm={30} md={20} lg={15} xl={10} >
+                        <ShipCard entity={ship}/>
+                </Grid2>)
         }
     }
     return (
-        <Grid2 direction="row" item spacing={2}>
+        <>
             {shipListItems}
-        </Grid2>
+        </>
     );
 }
 
