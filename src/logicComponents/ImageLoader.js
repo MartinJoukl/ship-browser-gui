@@ -1,16 +1,14 @@
-import DataContext from "../context/dataContext";
-import {useEffect, useRef, useState} from "react";
-import Calls from "./calls";
-import ShipImageContext from "../context/shipImageContext";
+import {useEffect, useState} from "react";
+import ImageContext from "../context/imageContext";
 
-function ShipImageLoader({children, id}) {
+function ImageLoader({children, id, callFunction}) {
     const [data, setData] = useState(null);
 
     useEffect(() => {
         setData(null);
         let ignore = false;
         if (!ignore) {
-            Calls.getShipImage(id).then(result => {
+            callFunction(id).then(result => {
                 if (!ignore) {
                     setData(result);
                 }
@@ -22,10 +20,10 @@ function ShipImageLoader({children, id}) {
     }, [id]);
 
     return (data == null ? <h1>Loading...</h1> :
-            <ShipImageContext.Provider value={data}>
+            <ImageContext.Provider value={data}>
                 {children}
-            </ShipImageContext.Provider>
+            </ImageContext.Provider>
     );
 }
 
-export default ShipImageLoader
+export default ImageLoader

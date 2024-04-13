@@ -1,4 +1,3 @@
-import {forwardRef} from "react";
 import {TextField} from "@mui/material";
 
 function StringFilter({label, onChange, filterField, value}) {

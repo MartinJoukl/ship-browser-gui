@@ -28,7 +28,7 @@ function ShipOverview() {
     }
 
     return (<div className={"margined"}>
-            <Grid2 container xs={true} direction="row" spacing={3} columns={60}>
+            <Grid2 container xs={true} direction="row" spacing={3} columns={60} sx={{ flexDirection: { xs: "column", sm: "column", md: "row"} }}>
                 <Grid2>
                     <Card variant="outlined" style={{position: "sticky", top: "15px"}}>
                         <CardContent>

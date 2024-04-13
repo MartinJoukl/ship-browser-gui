@@ -12,9 +12,15 @@ import DataContext from "../context/dataContext";
 import {useContext} from "react";
 import SkinCarouselBody from "./SkinCarouselSwiperBody";
 
-function ShipSkinCarousel() {
-    const skins = useContext(DataContext);
-    console.log(skins);
+function ShipSkinCarousel({skins}) {
+    const contextSkins = useContext(DataContext);
+    let displayedSkins;
+
+    if (skins != null) {
+        displayedSkins = skins;
+    } else {
+        displayedSkins = contextSkins;
+    }
 
     return (
         <Swiper
@@ -27,7 +33,7 @@ function ShipSkinCarousel() {
             scrollbar={{draggable: true}}
         >
             {
-                skins.map(skin => {
+                displayedSkins.map(skin => {
                     return (
                         <SwiperSlide key={skin.id}>{
                             <SkinCarouselBody skin={skin}/>

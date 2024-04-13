@@ -1,7 +1,7 @@
 import DataContext from "../context/dataContext";
 import {useEffect, useRef, useState} from "react";
 import Calls from "./calls";
-import ShipImageContext from "../context/shipImageContext";
+import ImageContext from "../context/imageContext";
 import SkinWithImagesContext from "../context/skinWithImageContext";
 
 function ShipSkinImagesLoader({children, id}) {

@@ -1,7 +1,6 @@
 import DataContext from "../context/dataContext";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import Calls from "./calls";
-import ShipImageContext from "../context/shipImageContext";
 
 function ShipDetailLoader({children, id}) {
     const [data, setData] = useState(null);
@@ -21,7 +20,6 @@ function ShipDetailLoader({children, id}) {
         };
     }, [id]);
 
-    console.log(data);
     return (data == null ? <h1>Loading...</h1> :
             <DataContext.Provider value={data}>
                 {children}

@@ -4,6 +4,26 @@
 
 body {
     background-color: whitesmoke;
+    overflow-y: scroll; /* Show scrollbars */
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+    background: navy;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #000048;
 }
 
 nav {
@@ -34,7 +54,7 @@ nav > a.active {
 }
 
 nav > a:hover {
-    background-color: #004080;
+    background: #000048;
 }
 
 .flexEnd {
@@ -94,4 +114,9 @@ nav > a:hover {
 
 .zoomIcon:hover path {
     fill: rgb(58, 58, 58);
+}
+
+.inlineImage {
+    display: block;
+    width: 100%;
 }

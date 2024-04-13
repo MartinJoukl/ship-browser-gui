@@ -1,4 +1,5 @@
 import {Card, CardContent, Table, TableBody, TableCell, TableRow} from "@mui/material";
+import {Link} from "react-router-dom";
 
 function ShipDetailCard({entity}) {
     function createData(key, value) {
@@ -12,6 +13,8 @@ function ShipDetailCard({entity}) {
         createData('Nationality', entity.nationality),
         createData('Hull type', entity.hullType),
         createData('Rarity', entity.rarity),
+        createData('Wiki url', <a target='_blank' rel='noopener noreferrer' href={entity.wikiUrl}>Link</a>),
+
     ];
 
     return (
@@ -24,8 +27,8 @@ function ShipDetailCard({entity}) {
                                 key={row.key}
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
                             >
-                                <TableCell component="th" scope="row" align="left" style={{"fontWeight":"bold"}}d>
-                                    {row.key+":"}
+                                <TableCell component="th" scope="row" align="left" style={{"fontWeight": "bold"}} d>
+                                    {row.key + ":"}
                                 </TableCell>
                                 <TableCell align="left">{row.value}</TableCell>
                             </TableRow>

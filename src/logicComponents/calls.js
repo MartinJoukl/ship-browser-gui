@@ -12,6 +12,10 @@ async function getSkinImage(id) {
     return await callImageGet(`${baseUri}/getSkinImage`, id);
 }
 
+async function getSkillImage(id) {
+    return await callImageGet(`${baseUri}/getSkillImage`, id);
+}
+
 async function getSkinBackground(id) {
     return await callImageGet(`${baseUri}/getSkinBackground`, id);
 }
@@ -85,5 +89,6 @@ export default {
     listSkinsByShipId,
     getSkinImage,
     getSkinChibi,
-    getSkinBackground
+    getSkinBackground,
+    getSkillImage
 }
