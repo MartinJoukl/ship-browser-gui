@@ -28,7 +28,8 @@ function ShipOverview() {
     }
 
     return (<div className={"margined"}>
-            <Grid2 container xs={true} direction="row" spacing={3} columns={60} sx={{ flexDirection: { xs: "column", sm: "column", md: "row"} }}>
+            <Grid2 container xs={true} direction="row" spacing={3}
+                   sx={{flexDirection: {xs: "column", sm: "column", md: "row"}}}>
                 <Grid2>
                     <Card variant="outlined" style={{position: "sticky", top: "15px"}}>
                         <CardContent>
@@ -36,13 +37,14 @@ function ShipOverview() {
                         </CardContent>
                     </Card>
                 </Grid2>
-                <Grid2 container xs={true} direction="row">
+                <Grid2 container xs={true} direction="column" spacing={3} style={{position: "relative", top: "15px"}}>
                     <ListDataLoader filters={{searchCriteria: filters}} paging={updatePaging} callDelay={1000}
                                     calledCall={Calls.listShips} ContextProvider={DataContext.Provider}>
                         <ShipList loadMoreFunction={updatePaging}/>
                     </ListDataLoader>
                 </Grid2>
             </Grid2>
+
         </div>
     )
 }

@@ -38,7 +38,7 @@ function ListDataLoader({children, filters, paging, callDelay, calledCall, Conte
     }, [filters]);
 
     return (data == null ? <h1>Loading...</h1> :
-            <ContextProvider value={data?.itemList}>
+            <ContextProvider value={data}>
                 {children}
             </ContextProvider>
     );

@@ -5,7 +5,8 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 
 function ShipList({shipsToList, loadMoreFunction}) {
     const context = useContext(DataContext);
-    const ships = context;
+    const ships = context.itemList;
+    const pageInfo = context.pageInfo;
     const shipListItems = [];
     if (Array.isArray(ships)) {
         for (const ship of ships) {
@@ -16,9 +17,9 @@ function ShipList({shipsToList, loadMoreFunction}) {
         }
     }
     return (
-        <>
+        <Grid2 container xs={true} direction="row" columns={60} spacing={3}>
             {shipListItems}
-        </>
+        </Grid2>
     );
 }
 
