@@ -8,7 +8,6 @@ function SkillsCard({skills}) {
         return {name, image, description};
     }
 
-    console.log(skills);
     const rows = [];
     for (const skill of skills) {
         rows.push(createData(skill.name,

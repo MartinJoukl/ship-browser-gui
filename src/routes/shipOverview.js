@@ -9,7 +9,6 @@ import DataContext from "../context/dataContext";
 
 function ShipOverview() {
     const [filters, setFilters] = useState();
-    const [paging, setPaging] = useState({});
 
     function updateFilters(newFilterValue) {
         setFilters((prevState => {
@@ -23,10 +22,6 @@ function ShipOverview() {
         }));
     }
 
-    function updatePaging(pageIndex, pageSize) {
-
-    }
-
     return (<div className={"margined"}>
             <Grid2 container xs={true} direction="row" spacing={3}
                    sx={{flexDirection: {xs: "column", sm: "column", md: "row"}}}>
@@ -38,9 +33,10 @@ function ShipOverview() {
                     </Card>
                 </Grid2>
                 <Grid2 container xs={true} direction="column" spacing={3} style={{position: "relative", top: "15px"}}>
-                    <ListDataLoader filters={{searchCriteria: filters}} paging={updatePaging} callDelay={1000}
+                    <ListDataLoader filters={{searchCriteria: filters}} initialPaging={{pageIndex: 0, pageSize: 20}}
+                                    callDelay={1000}
                                     calledCall={Calls.listShips} ContextProvider={DataContext.Provider}>
-                        <ShipList loadMoreFunction={updatePaging}/>
+                        <ShipList/>
                     </ListDataLoader>
                 </Grid2>
             </Grid2>
