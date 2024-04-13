@@ -5,7 +5,7 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 
 function ShipList({shipsToList, loadMoreFunction}) {
     const context = useContext(DataContext);
-    const ships = context.itemlist;
+    const ships = context;
     const shipListItems = [];
     if (Array.isArray(ships)) {
         for (const ship of ships) {
