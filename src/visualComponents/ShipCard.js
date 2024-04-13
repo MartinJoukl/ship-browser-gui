@@ -1,5 +1,5 @@
 import {Card, CardActionArea, CardContent, Typography} from "@mui/material";
-import ImageLoader from "../logicComponents/ImageLoader";
+import ShipImageLoader from "../logicComponents/ShipImageLoader";
 import CardMediaFromContext from "./CardMediaFromContext";
 import {Navigate, redirect} from "react-router-dom";
 import {useState} from "react";
@@ -21,9 +21,9 @@ function ShipCard({entity}) {
                         {entity.name}
                     </Typography>
                 </CardContent>
-                <ImageLoader id={entity.id}>
+                <ShipImageLoader id={entity.id}>
                     <CardMediaFromContext altText={entity.name} height={"256"}/>
-                </ImageLoader>
+                </ShipImageLoader>
             </CardActionArea>
         </Card>
     )

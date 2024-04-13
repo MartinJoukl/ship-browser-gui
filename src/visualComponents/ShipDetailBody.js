@@ -1,8 +1,13 @@
-import {Card, Typography} from "@mui/material";
+import {Card, CardContent, Typography} from "@mui/material";
 import {useContext} from "react";
 import dataContext from "../context/dataContext";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import ShipDetailCard from "./ShipDetailCard";
+import ListDataLoader from "../logicComponents/ListDataLoader";
+import Calls from "../logicComponents/calls";
+import DataContext from "../context/dataContext";
+import ShipList from "./shipList";
+import ShipSkinCarousel from "./ShipSkinCarousel";
 
 function ShipDetailBody() {
     const ship = useContext(dataContext);
@@ -13,7 +18,7 @@ function ShipDetailBody() {
                     <Typography variant="h1" component="h1" align={"center"}>
                         {ship.name}
                     </Typography>
-                    <Typography variant="h4" component="p" align={"center"}>
+                    <Typography variant="h5" component="p" align={"center"}>
                         {ship.code}
                     </Typography>
                 </Card>
@@ -23,7 +28,14 @@ function ShipDetailBody() {
                     <ShipDetailCard entity={ship}/>
                 </Grid2>
                 <Grid2 xs={true}>
-                    <Card>bb</Card>
+                    <Card>
+                        <CardContent>
+                            <ListDataLoader callDelay={0} calledCall={Calls.listSkinsByShipId}
+                                            ContextProvider={DataContext.Provider} filters={ship.id}>
+                                <ShipSkinCarousel/>
+                            </ListDataLoader>
+                        </CardContent>
+                    </Card>
                 </Grid2>
             </Grid2>
         </Grid2>

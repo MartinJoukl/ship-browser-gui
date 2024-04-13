@@ -1,48 +1,97 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
-body{
-  background-color: whitesmoke;
+
+body {
+    background-color: whitesmoke;
 }
 
 nav {
-  position: sticky;
-  display: flex;
-  padding: 0px 10px;
-  background-color: #0000b9;
-  align-items: center;
-  border-bottom: solid 1px black;
-  box-sizing: border-box;
-}
-nav > a {
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  padding: 30px 15px;
-  width: 150px;
-  box-sizing: border-box;
-  font-family: Arial, serif;
-  font-size: 1.1em;
-  transition: 0.4s;
+    position: sticky;
+    display: flex;
+    padding: 0px 10px;
+    background-color: #0000b9;
+    align-items: center;
+    border-bottom: solid 1px black;
+    box-sizing: border-box;
 }
 
-nav > a.active{
-  background-color: navy;
-  text-decoration: underline;
+nav > a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 30px 15px;
+    width: 150px;
+    box-sizing: border-box;
+    font-family: Arial, serif;
+    font-size: 1.1em;
+    transition: 0.4s;
+}
+
+nav > a.active {
+    background-color: navy;
+    text-decoration: underline;
 }
 
 nav > a:hover {
-  background-color: #004080;
+    background-color: #004080;
 }
 
 .flexEnd {
-  margin-left: auto;
-}
-.margined{
-  margin: 20px;
-}
-.topBottomMargined{
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-left: auto;
 }
 
+.margined {
+    margin: 20px;
+}
+
+.topBottomMargined {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.imageBack {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+}
+
+.imageFore {
+    position: absolute;
+    height: 97%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: fit-content;
+}
+
+.zoomIcon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.zoomIcon path {
+    transition-duration: 0.2s;
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+.zoomIcon:hover path {
+    fill: rgb(58, 58, 58);
+}

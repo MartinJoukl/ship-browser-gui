@@ -1,22 +1,19 @@
-import DataContext from "../context/dataContext";
 import {useEffect, useRef, useState} from "react";
-import Calls from "./calls";
 
-function ListDataLoader({children, filters, paging, callDelay}) {
+function ListDataLoader({children, filters, paging, callDelay, calledCall, ContextProvider}) {
     const [data, setData] = useState(null);
     const searchTimer = useRef(null);
     const [initialLoadPerformed, setInitialLoadPerformed] = useState(false);
-    
+
     useEffect(() => {
 
         function callApi() {
             setData(null);
-            const dtoIn = {
-                searchCriteria: {...filters}
-            }
+            const dtoIn = filters;
+
             let ignore = false;
             if (!ignore) {
-                Calls.listShips(dtoIn).then(result => {
+                calledCall(dtoIn, paging).then(result => {
                     if (!ignore) {
                         setData(result);
                     }
@@ -41,9 +38,9 @@ function ListDataLoader({children, filters, paging, callDelay}) {
     }, [filters]);
 
     return (data == null ? <h1>Loading...</h1> :
-            <DataContext.Provider value={data?.itemList}>
+            <ContextProvider value={data?.itemList}>
                 {children}
-            </DataContext.Provider>
+            </ContextProvider>
     );
 }
 

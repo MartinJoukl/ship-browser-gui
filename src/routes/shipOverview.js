@@ -4,6 +4,8 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import {Card, CardContent} from "@mui/material";
 import {useState} from "react";
 import ShipList from "../visualComponents/shipList";
+import Calls from "../logicComponents/calls";
+import DataContext from "../context/dataContext";
 
 function ShipOverview() {
     const [filters, setFilters] = useState();
@@ -35,7 +37,8 @@ function ShipOverview() {
                     </Card>
                 </Grid2>
                 <Grid2 container xs={true} direction="row">
-                    <ListDataLoader filters={filters} paging={updatePaging} callDelay={1000}>
+                    <ListDataLoader filters={{searchCriteria: filters}} paging={updatePaging} callDelay={1000}
+                                    calledCall={Calls.listShips} ContextProvider={DataContext.Provider}>
                         <ShipList loadMoreFunction={updatePaging}/>
                     </ListDataLoader>
                 </Grid2>

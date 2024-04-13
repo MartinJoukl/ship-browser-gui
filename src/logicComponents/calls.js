@@ -8,8 +8,24 @@ async function getShipImage(id) {
     return await callImageGet(`${baseUri}/getShipImage`, id);
 }
 
+async function getSkinImage(id) {
+    return await callImageGet(`${baseUri}/getSkinImage`, id);
+}
+
+async function getSkinBackground(id) {
+    return await callImageGet(`${baseUri}/getSkinBackground`, id);
+}
+
+async function getSkinChibi(id) {
+    return await callImageGet(`${baseUri}/getSkinChibi`, id);
+}
+
 async function getShip(id) {
     return await callGet(`${baseUri}/getShip`, {id: id});
+}
+
+async function listSkinsByShipId(id) {
+    return await callGet(`${baseUri}/listSkinsByShipId`, {shipId: id});
 }
 
 async function callPost(uri, dtoIn) {
@@ -65,5 +81,9 @@ async function callImageGet(uri, id) {
 export default {
     listShips,
     getShipImage,
-    getShip
+    getShip,
+    listSkinsByShipId,
+    getSkinImage,
+    getSkinChibi,
+    getSkinBackground
 }
