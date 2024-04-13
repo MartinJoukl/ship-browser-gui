@@ -8,6 +8,7 @@ function ListDataLoader({children, filters, initialPaging, callDelay, calledCall
     const [loadInProgress, setLoadInProgress] = useState(false);
 
     function loadMore() {
+        setLoadInProgress(true);
         setLoadMoreCalled(() =>
             true
         );
@@ -17,24 +18,26 @@ function ListDataLoader({children, filters, initialPaging, callDelay, calledCall
     }
 
     useEffect(() => {
-        function callApi(appendToExisting) {
-            if (!appendToExisting) {
+        function callApi(loadingMore) {
+            if (!loadingMore) {
                 setData(null);
             }
             setLoadInProgress(true);
             const dtoIn = filters;
+
+            if (!loadingMore && (paging.pageIndex !== initialPaging.pageIndex || paging.pageSize !== initialPaging.pageSize)) {
+                // something else than "more" was pressed, load new list
+                setPaging(() => initialPaging);
+            }
 
             let ignore = false;
             if (!ignore) {
                 calledCall(dtoIn, paging).then(result => {
                     if (!ignore) {
                         setLoadInProgress(() => false);
-                        if (appendToExisting) {
+                        if (loadingMore) {
                             setLoadMoreCalled(() => false);
                             result = {...result, itemList: [...(data.itemList), ...(result.itemList)]}
-                        } else if (paging.pageInfo !== initialPaging.pageInfo || paging.pageSize !== initialPaging.pageSize) {
-                            // something else than "more" was pressed, load new list
-                            setPaging(initialPaging);
                         }
                         setData(result);
                     }
@@ -49,6 +52,7 @@ function ListDataLoader({children, filters, initialPaging, callDelay, calledCall
             // Initial load
             callApi(false);
         } else {
+            setLoadInProgress(true);
             if (loadMoreCalled) {
                 return callApi(true);
             } else {

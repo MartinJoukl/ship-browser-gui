@@ -2,7 +2,7 @@ import StringFilter from "./stringFilter";
 import OptionBoxFilter from "./optionBoxFilter";
 import {List, ListItem, MenuItem, Typography} from "@mui/material";
 
-function ShipFilterMenu({filterUpdateFunction}) {
+function ShipFilterMenu({filterUpdateFunction, filters}) {
     function onChange(e) {
         filterUpdateFunction(e);
     }
@@ -27,7 +27,8 @@ function ShipFilterMenu({filterUpdateFunction}) {
                 <StringFilter filterField={"nationality"} label={"Nationality"} onChange={onChange}/>
             </ListItem>
             <ListItem>
-                <OptionBoxFilter filterField={"hullType"} label={"Hull type"} onChange={onChange}>
+                <OptionBoxFilter filterField={"hullType"} label={"Hull type"} onChange={onChange}
+                                 value={filters.hullType}>
                     <MenuItem value="">
                         <em>All</em>
                     </MenuItem>
@@ -50,7 +51,7 @@ function ShipFilterMenu({filterUpdateFunction}) {
                 </OptionBoxFilter>
             </ListItem>
             <ListItem>
-                <OptionBoxFilter filterField={"rarity"} label={"Rarity"} onChange={onChange}>
+                <OptionBoxFilter filterField={"rarity"} label={"Rarity"} onChange={onChange} value={filters.rarity}>
                     <MenuItem value="">
                         <em>All</em>
                     </MenuItem>

@@ -19,17 +19,22 @@ function ShipList() {
                 </Grid2>)
         }
     }
+    if (ships.length === 0) {
+        return <h1>No ships found by given criteria.</h1>;
+    }
 
     if ((pageInfo.pageIndex + 1) * pageInfo.pageSize < pageInfo.total) {
         return (
-            <div className={"centerAlign"}>
-                <Grid2 container xs={true} direction="row" columns={60} spacing={3}>
+            <Grid2 className="centerAlign" container direction="column" spacing={3} style={{alignItems: "center"}}>
+                <Grid2 container xs={true} direction="row" columns={60}>
                     {shipListItems}
                 </Grid2>
-                <Button disabled={loadInProgress} onClick={() => {
-                    loadMoreFunction()
-                }} style={{marginTop: "20px"}} size="large" variant="contained">Show more</Button>
-            </div>
+                <Grid2>
+                    <Button disabled={loadInProgress} onClick={() => {
+                        loadMoreFunction()
+                    }} size="large" variant="contained">Show more</Button>
+                </Grid2>
+            </Grid2>
         );
     } else {
         return (

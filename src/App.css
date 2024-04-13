@@ -120,6 +120,13 @@ nav > a:hover {
     display: block;
     width: 100%;
 }
-.centerAlign{
+
+.centerAlign {
     text-align: center;
+}
+
+.centered {
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }

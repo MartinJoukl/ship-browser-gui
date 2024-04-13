@@ -8,7 +8,7 @@ import Calls from "../logicComponents/calls";
 import DataContext from "../context/dataContext";
 
 function ShipOverview() {
-    const [filters, setFilters] = useState();
+    const [filters, setFilters] = useState({});
 
     function updateFilters(newFilterValue) {
         setFilters((prevState => {
@@ -22,17 +22,17 @@ function ShipOverview() {
         }));
     }
 
-    return (<div className={"margined"}>
+    return (<div className={"margined centered"}>
             <Grid2 container xs={true} direction="row" spacing={3}
                    sx={{flexDirection: {xs: "column", sm: "column", md: "row"}}}>
-                <Grid2>
+                <Grid2 xs={"auto"} style={{marginRight:"10px"}} sx={{marginRight: {xs: "0px", sm: "10px", md: "10px"}}}>
                     <Card variant="outlined" style={{position: "sticky", top: "15px"}}>
                         <CardContent>
-                            <ShipFilterMenu filterUpdateFunction={updateFilters}/>
+                            <ShipFilterMenu filterUpdateFunction={updateFilters} filters={filters}/>
                         </CardContent>
                     </Card>
                 </Grid2>
-                <Grid2 container xs={true} direction="column" spacing={3} style={{position: "relative", top: "15px"}}>
+                <Grid2 xs={true} style={{marginRight:"10px"}} sx={{marginRight: {xs: "0px", sm: "10px", md: "10px"}}}>
                     <ListDataLoader filters={{searchCriteria: filters}} initialPaging={{pageIndex: 0, pageSize: 20}}
                                     callDelay={1000}
                                     calledCall={Calls.listShips} ContextProvider={DataContext.Provider}>
