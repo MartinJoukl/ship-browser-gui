@@ -11,14 +11,18 @@ function ShipSkinImagesLoader({children, id}) {
     useEffect(() => {
         setImage(null);
         let ignore = false;
+        let toCleanUp;
         if (!ignore) {
             Calls.getSkinImage(id).then(result => {
                 if (!ignore) {
-                    setImage(result);
+                    const blob = URL.createObjectURL(result);
+                    setImage(blob);
+                    toCleanUp = blob;
                 }
             });
         }
         return () => {
+            URL.revokeObjectURL(toCleanUp);
             ignore = true;
         };
     }, [id]);
@@ -26,14 +30,18 @@ function ShipSkinImagesLoader({children, id}) {
     useEffect(() => {
         setBackground(null);
         let ignore = false;
+        let toCleanUp;
         if (!ignore) {
             Calls.getSkinBackground(id).then(result => {
                 if (!ignore) {
-                    setBackground(result);
+                    const blob = URL.createObjectURL(result);
+                    setBackground(blob);
+                    toCleanUp = blob;
                 }
             });
         }
         return () => {
+            URL.revokeObjectURL(toCleanUp);
             ignore = true;
         };
     }, [id]);
@@ -41,14 +49,18 @@ function ShipSkinImagesLoader({children, id}) {
     useEffect(() => {
         setChibi(null);
         let ignore = false;
+        let toCleanUp;
         if (!ignore) {
             Calls.getSkinChibi(id).then(result => {
                 if (!ignore) {
-                    setChibi(result);
+                    const blob = URL.createObjectURL(result);
+                    setChibi(blob);
+                    toCleanUp = blob;
                 }
             });
         }
         return () => {
+            URL.revokeObjectURL(toCleanUp);
             ignore = true;
         };
     }, [id]);
