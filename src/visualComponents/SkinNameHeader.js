@@ -1,16 +1,14 @@
-import {useContext} from "react";
-import SkinWithImagesContext from "../context/skinWithImageContext";
 import {Stack, Typography} from "@mui/material";
+import Calls from "../logicComponents/calls";
 
 function SkinNameHeader({skin}) {
-    const {chibi} = useContext(SkinWithImagesContext);
     return (
         <Stack direction="row"
                justifyContent="center"
                alignItems="center"
         >
             <div style={{height: "2em"}}>
-                <img src={chibi} height={"100%"} alt={"chibi"}/>
+                <img src={Calls.getSkinChibiUrl(skin.id)} height={"100%"} alt={"chibi"}/>
             </div>
             <Typography variant="h5"
                         component="div"
@@ -25,7 +23,7 @@ function SkinNameHeader({skin}) {
                 {skin.name}
             </Typography>
             <div style={{height: "2em"}}>
-                <img src={chibi} height={"100%"} alt={"chibi"}/>
+                <img src={Calls.getSkinChibiUrl(skin.id)} height={"100%"} alt={"chibi"}/>
             </div>
         </Stack>
     )

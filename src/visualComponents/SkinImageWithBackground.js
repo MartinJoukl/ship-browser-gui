@@ -1,10 +1,9 @@
-import {useContext, useState} from "react";
-import SkinWithImagesContext from "../context/skinWithImageContext";
 import ModalPopUp from "./ModalPopUp";
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import Calls from "../logicComponents/calls";
+import {useState} from "react";
 
 function SkinImageWithBackground({skin}) {
-    const {image, background} = useContext(SkinWithImagesContext);
     const [open, setOpen] = useState(false);
 
     function toggleOpen(shouldOpen) {
@@ -16,8 +15,9 @@ function SkinImageWithBackground({skin}) {
     return (
         <>
             <div className="overlay">
-                <img className="imageBack" src={background} alt={`Background of skin: ${skin.name}`}/>
-                <img className="imageFore" src={image} alt={`Image of skin: ${skin.name}`}/>
+                <img className="imageBack" src={Calls.getSkinBackgroundUrl(skin.id)}
+                     alt={`Background of skin: ${skin.name}`}/>
+                <img className="imageFore" src={Calls.getSkinImageUrl(skin.id)} alt={`Image of skin: ${skin.name}`}/>
                 <ZoomInIcon onClick={() => {
                     toggleOpen(true)
                 }
@@ -25,9 +25,10 @@ function SkinImageWithBackground({skin}) {
             </div>
             <ModalPopUp open={open} title={skin.name} modalOpenFunction={toggleOpen} Body={
                 <div className="overlay">
-                    <img width={"10px"} className="imageBack" src={background}
+                    <img width={"10px"} className="imageBack" src={Calls.getSkinBackgroundUrl(skin.id)}
                          alt={`Background of skin: ${skin.name}`}/>
-                    <img width={"10px"} className="imageFore" src={image} alt={`Image of skin: ${skin.name}`}/>
+                    <img width={"10px"} className="imageFore" src={Calls.getSkinImageUrl(skin.id)}
+                         alt={`Image of skin: ${skin.name}`}/>
                 </div>
             }/>
         </>

@@ -1,6 +1,4 @@
 import {Card, CardContent, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-import ImageLoader from "../logicComponents/ImageLoader";
-import ImageFromDataContext from "./ImageFromDataContext";
 import Calls from "../logicComponents/calls";
 
 function SkillsCard({skills}) {
@@ -11,9 +9,7 @@ function SkillsCard({skills}) {
     const rows = [];
     for (const skill of skills) {
         rows.push(createData(skill.name,
-            <ImageLoader id={skill.id} callFunction={Calls.getSkillImage} key={skill.id}>
-                <ImageFromDataContext alt={skill.name} className={"inlineImage"}/>
-            </ImageLoader>
+            <img alt={skill.name} src={Calls.getSkillImageUrl(skill.id)} className={"inlineImage"}/>
             , skill.description));
     }
 

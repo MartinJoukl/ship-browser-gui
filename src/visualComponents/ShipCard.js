@@ -1,7 +1,5 @@
-import {Card, CardActionArea, CardContent, Typography} from "@mui/material";
-import ImageLoader from "../logicComponents/ImageLoader";
-import CardMediaFromContext from "./CardMediaFromContext";
-import {Navigate, redirect} from "react-router-dom";
+import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
+import {Navigate} from "react-router-dom";
 import {useState} from "react";
 import Calls from "../logicComponents/calls";
 
@@ -23,9 +21,12 @@ function ShipCard({entity}) {
                         {entity.name}
                     </Typography>
                 </CardContent>
-                <ImageLoader id={entity.id} callFunction={Calls.getShipImage}>
-                    <CardMediaFromContext altText={entity.name} height={"256"}/>
-                </ImageLoader>
+                <CardMedia
+                    component="img"
+                    height={"256"}
+                    image={Calls.getShipImageUrl(entity.id)}
+                    alt={entity.name}
+                />
             </CardActionArea>
         </Card>
     )

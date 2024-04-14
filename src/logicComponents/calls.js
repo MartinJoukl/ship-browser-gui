@@ -4,24 +4,24 @@ async function listShips(dtoIn, pageInfo) {
     return await callPost(`${baseUri}/listShips`, dtoIn, pageInfo);
 }
 
-async function getShipImage(id) {
-    return await callImageGet(`${baseUri}/getShipImage`, id);
+function getShipImageUrl(id) {
+    return getImageUrl(`${baseUri}/getShipImage`, id);
 }
 
-async function getSkinImage(id) {
-    return await callImageGet(`${baseUri}/getSkinImage`, id);
+function getSkinImageUrl(id) {
+    return getImageUrl(`${baseUri}/getSkinImage`, id);
 }
 
-async function getSkillImage(id) {
-    return await callImageGet(`${baseUri}/getSkillImage`, id);
+function getSkillImageUrl(id) {
+    return getImageUrl(`${baseUri}/getSkillImage`, id);
 }
 
-async function getSkinBackground(id) {
-    return await callImageGet(`${baseUri}/getSkinBackground`, id);
+function getSkinBackgroundUrl(id) {
+    return getImageUrl(`${baseUri}/getSkinBackground`, id);
 }
 
-async function getSkinChibi(id) {
-    return await callImageGet(`${baseUri}/getSkinChibi`, id);
+function getSkinChibiUrl(id) {
+    return getImageUrl(`${baseUri}/getSkinChibi`, id);
 }
 
 async function getShip(id) {
@@ -68,27 +68,17 @@ async function callGet(uri, dtoIn) {
     return await response.json();
 }
 
-async function callImageGet(uri, id) {
-    const response = await fetch(`${uri}?id=${id}`, {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
-        //  credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "image/png",
-        }, redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer" // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
-    return await response.blob();
+function getImageUrl(uri, id) {
+    return `${uri}?id=${id}`;
 }
 
 export default {
     listShips,
-    getShipImage,
+    getShipImageUrl,
     getShip,
     listSkinsByShipId,
-    getSkinImage,
-    getSkinChibi,
-    getSkinBackground,
-    getSkillImage
+    getSkinImageUrl,
+    getSkinChibiUrl,
+    getSkinBackgroundUrl,
+    getSkillImageUrl
 }
