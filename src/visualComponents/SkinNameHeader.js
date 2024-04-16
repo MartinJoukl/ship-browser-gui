@@ -1,5 +1,5 @@
 import {Stack, Typography} from "@mui/material";
-import Calls from "../logicComponents/calls";
+import Calls from "../calls";
 
 function SkinNameHeader({skin}) {
     return (

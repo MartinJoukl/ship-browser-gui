@@ -1,5 +1,5 @@
 import {Card, CardContent, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-import Calls from "../logicComponents/calls";
+import Calls from "../calls";
 
 function SkillsCard({skills}) {
     function createData(name, image, description) {

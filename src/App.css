@@ -2,9 +2,16 @@
     text-align: center;
 }
 
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     background-color: whitesmoke;
     overflow-y: scroll; /* Show scrollbars */
+    text-align: center;
 }
 
 /* width */
@@ -36,7 +43,8 @@ nav {
     box-sizing: border-box;
 }
 
-nav > a {
+nav a {
+    display: block;
     text-align: center;
     color: white;
     text-decoration: none;
@@ -48,17 +56,21 @@ nav > a {
     transition: 0.4s;
 }
 
-nav > a.active {
+nav a.active {
     background-color: navy;
     text-decoration: underline;
 }
 
-nav > a:hover {
+nav a:hover {
     background: #000048;
 }
 
 .flexEnd {
     margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .margined {
@@ -129,4 +141,18 @@ nav > a:hover {
     display: flex;
     text-align: center;
     justify-content: center;
+}
+
+.growing {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 400px;
 }

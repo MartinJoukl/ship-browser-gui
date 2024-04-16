@@ -29,16 +29,14 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
-            }]
+            }
+        ]
     }
 ]);
 
 function App() {
-    const [user, setUser] = useState({});
     return (
-        <UserContext.Provider value={user}>
-            <RouterProvider router={router}/>
-        </UserContext.Provider>
+        <RouterProvider router={router}/>
     );
 }
 

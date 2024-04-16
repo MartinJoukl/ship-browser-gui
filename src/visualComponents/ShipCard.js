@@ -1,7 +1,7 @@
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import {Navigate} from "react-router-dom";
 import {useState} from "react";
-import Calls from "../logicComponents/calls";
+import Calls from "../calls";
 
 function ShipCard({entity}) {
     const [shouldRedirect, setShouldRedirect] = useState(false);

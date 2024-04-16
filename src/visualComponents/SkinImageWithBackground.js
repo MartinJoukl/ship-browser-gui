@@ -1,6 +1,6 @@
 import ModalPopUp from "./ModalPopUp";
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import Calls from "../logicComponents/calls";
+import Calls from "../calls";
 import {useState} from "react";
 
 function SkinImageWithBackground({skin}) {
