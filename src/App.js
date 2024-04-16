@@ -7,6 +7,7 @@ import ErrorPage from "./visualComponents/errorPage";
 import ShipDetails from "./routes/shipDetails";
 import Login from "./routes/login";
 import MainBody from "./visualComponents/mainBody";
+import AdminPanelRoute from "./routes/AdminPanelRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/administration",
+                element: <AdminPanelRoute></AdminPanelRoute>
             }
         ]
     }

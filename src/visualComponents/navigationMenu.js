@@ -33,6 +33,9 @@ function NavigationMenu() {
                 >
                     Welcome {username}
                 </Typography>
+                <NavLink key={"adminPanel"} className={({isActive, isPending}) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                } to={"/administration"}>Administration</NavLink>
                 <NavLink key={"logout"} className={({isActive, isPending}) =>
                     isPending ? "pending" : isActive ? "active" : ""
                 } to={"/shipOverview"} onClick={(() => {
