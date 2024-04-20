@@ -2,7 +2,22 @@ import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/materia
 
 function OptionBoxFilter({label, onChange, filterField, value, children}) {
     function handleOnChange(e) {
-        onChange({[filterField]: e.target.value});
+        if (!filterField.includes(".")) {
+            onChange({[filterField]: passedValue});
+            return;
+        }
+        const filterObject = {};
+        let innerObject = filterObject;
+        const splitPath = filterField.split(".");
+        for (let i = 0; i < splitPath.length; i++) {
+            if (i === splitPath.length - 1) {
+                innerObject[splitPath[i]] = e.target.value;
+            } else {
+                innerObject[splitPath[i]] = {};
+                innerObject = innerObject[[splitPath[i]]];
+            }
+        }
+        onChange(filterObject);
     }
 
     const passedValue = value || "";

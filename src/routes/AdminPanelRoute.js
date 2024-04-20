@@ -1,6 +1,7 @@
 import AdminPanel from "../visualComponents/AdminPanel";
 import UserContext from "../context/userContext";
 import {useContext} from "react";
+import AdminPanelCaller from "../logicComponents/AdminPanelCaller";
 
 function AdminPanelRoute() {
     const {token} = useContext(UserContext);
@@ -9,7 +10,9 @@ function AdminPanelRoute() {
     }
     return (
         <div className={"growing"}>
-            <AdminPanel></AdminPanel>
+            <AdminPanelCaller>
+                <AdminPanel/>
+            </AdminPanelCaller>
         </div>
     )
 }

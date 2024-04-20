@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import LoginForm from "../visualComponents/LoginForm";
-import LoginFormCaller from "../LoginFormCaller/TokenProvider";
+import LoginFormCaller from "../logicComponents/LoginCaller";
 
 function Login({onSubmit}) {
     return (

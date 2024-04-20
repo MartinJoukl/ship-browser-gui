@@ -8,6 +8,7 @@ import ShipDetails from "./routes/shipDetails";
 import Login from "./routes/login";
 import MainBody from "./visualComponents/mainBody";
 import AdminPanelRoute from "./routes/AdminPanelRoute";
+import SkinOverview from "./routes/skinOverview";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "skinOverview",
-                element: <h1>Under construction</h1>
+                element: <SkinOverview/>
             },
             {
                 path: "/login",

@@ -45,7 +45,7 @@ function ShipDetailLoader({children, id, failAlertMessage}) {
                 <Button disabled={loadInProgress} onClick={() => {
                     setLoadFailed(false)
                 }} size="large" variant="contained">Reload</Button>
-                <AlertSnackbar open={failAlertOpen} message={failAlertMessage} setOpen={setFailAlertOpen}/>
+                <AlertSnackbar open={failAlertOpen} message={failAlertMessage} setOpen={setFailAlertOpen} severity={"error"}/>
             </div>
         );
     }

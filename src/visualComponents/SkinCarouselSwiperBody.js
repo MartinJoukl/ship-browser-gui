@@ -6,7 +6,7 @@ function SkinCarouselBody({skin}) {
     return (
         <div>
             <SkinNameHeader skin={skin}/>
-            <SkinImageWithBackground skin={skin}/>
+            <SkinImageWithBackground skin={skin} fullQualityPreview={true}/>
         </div>
     )
 }
