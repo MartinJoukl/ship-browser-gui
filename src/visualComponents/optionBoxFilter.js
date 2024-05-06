@@ -1,9 +1,10 @@
 import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 
 function OptionBoxFilter({label, onChange, filterField, value, children}) {
+
     function handleOnChange(e) {
         if (!filterField.includes(".")) {
-            onChange({[filterField]: passedValue});
+            onChange({[filterField]: e.target.value});
             return;
         }
         const filterObject = {};
