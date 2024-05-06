@@ -3,9 +3,14 @@ This application is gui for https://github.com/MartinJoukl/ShipBrowser/tree/mast
 It is created in react and can be run using `npm start` - the application runs on http://localhost:3000.
 
 ## Route overview
-Gui consists of 3 routes, 2 visible to non-registered user.
-Main routes are Ship Overview and Skin Overview visible by public and Administration visible by logged in user. There as also another subroute of Ship Overview, which purpose is to display ship details - it is accesible by clicking on any card of displayed ship.
+Gui consists of 4 routes, 3 visible to non-registered user.
+Main routes are Ship Overview, Skin Overview and login visible by public and Administration visible by logged in user. There as also another subroute of Ship Overview - Ship Detail, which is accesible by clicking on any card of displayed ship.
 
+Ship overview - displays cards of all ships in game, which can be filtered by in-build filters.
+Skin overview - displays gallery of all skins in game, which can be filtered by in-build filters.
+Ship Detail - displays detail of given ship including it's skills and skin gallery.
+Login - displays a login form.
+Administration - displays administration panel which has buttons for synchronizing with remote and generating skin image previews.
 
 ## Requirements
 Application requires the backend to be running.
