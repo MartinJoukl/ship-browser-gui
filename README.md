@@ -1,5 +1,18 @@
-# Getting Started with Create React App
+# Ship browser gui
+This application is gui for https://github.com/MartinJoukl/ShipBrowser/tree/master
+It is created in react and can be run using `npm start` - the application runs on http://localhost:3000.
 
+## Route overview
+Gui consists of 3 routes, 2 visible to non-registered user.
+Main routes are Ship Overview and Skin Overview visible by public and Administration visible by logged in user. There as also another subroute of Ship Overview, which purpose is to display ship details - it is accesible by clicking on any card of displayed ship.
+
+
+## Requirements
+Application requires the backend to be running.
+
+
+# React info
+## Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
